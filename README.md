@@ -9,6 +9,8 @@ Implements the next methods:
 * Remove
 * Read
 * Write
+* ReadEncrypted
+* WriteEncrypted
 
 ## Installing
 

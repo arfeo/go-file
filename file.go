@@ -78,3 +78,34 @@ func Write(name string, data []byte) bool {
 
   return true
 }
+
+/**
+ * Function tries to read data from an encrypted file with the given name and key, and handles error (if any);
+ * returns data as the first value and true as the second one in case of success,
+ * otherwise returns nil as the first value and false as the second one
+ */
+func ReadEncrypted(name string, key []byte) ([]byte, bool)  {
+  file, err := ioutil.ReadFile(name)
+
+  if err != nil {
+    log.Println(err)
+
+    return nil, false
+  }
+
+  return []byte(Decrypt(key, file)), true
+}
+
+/**
+ * Function tries to write given data to an encrypted file with the given name and key, and handles error (if any);
+ * returns true if data was written to the file, otherwise returns false
+ */
+func WriteEncrypted(name string, data []byte, key []byte) bool  {
+  if err := ioutil.WriteFile(name, Encrypt(key, data), 0644); err != nil {
+    log.Println(err)
+
+    return false
+  }
+
+  return true
+}
