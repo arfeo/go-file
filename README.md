@@ -11,6 +11,10 @@ Implements the next methods:
 * Write
 * ReadEncrypted
 * WriteEncrypted
+* Encrypt
+* Decrypt
+* EncodeBase64
+* DecodeBase64
 
 ## Installing
 
